@@ -5,7 +5,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>blender@meh.paranoid.pk</em:id>
-    <em:version>0.0.1.1</em:version>
+    <em:version>0.0.2</em:version>
     <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
 
@@ -21,7 +21,7 @@
 
     <!-- Front End MetaData -->
     <em:name>Blender</em:name>
-		<em:description>Blend in the crowd by faking to be the most common Firefox browser version/OS/etcetera.</em:description>
+    <em:description>Blend in the crowd by faking to be the most common Firefox browser version/OS/etcetera.</em:description>
     <em:creator>meh.</em:creator>
     <em:homepageURL>http://github.com/meh/blender</em:homepageURL>
   </Description>
