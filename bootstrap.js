@@ -43,7 +43,7 @@ var Blender = (function () {
 		preferences.clearUserPref("productSub.override");
 
 		preferences.clearUserPref("useragent.override");
-		preferenecs.clearUserPref("useragent.vendor");
+		preferences.clearUserPref("useragent.vendor");
 		preferences.clearUserPref("useragent.vendorSub");
 
 		preferences.clearUserPref("navigator.platform");
