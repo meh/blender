@@ -55,11 +55,8 @@ var Blender = (function () {
 
 var blender;
 
-function install () {
-	blender = new Blender();
-}
-
 function startup (data, reason) {
+	blender = new Blender();
 	blender.start();
 }
 
