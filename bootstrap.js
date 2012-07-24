@@ -47,7 +47,8 @@ var Blender = (function () {
 
 	c.prototype.observe = function (subject, topic, data) {
 		if (topic == "http-on-modify-request") {
-			var http = subject.QueryInterface(Ci.nsIHttpChannel)
+			var http = subject.QueryInterface(Ci.nsIHttpChannel);
+		}
 	}
 
 	c.prototype.start = function () {
