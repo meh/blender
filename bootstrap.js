@@ -19,7 +19,10 @@ var Blender = (function () {
 
 	var Changes  = {
 		preferences: {
-			general: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("general.")
+			general: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("general."),
+			network: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("network."),
+			image:   Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("image."),
+			intl:    Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("intl.")
 		},
 
 		settings: {
@@ -40,14 +43,50 @@ var Blender = (function () {
 				"navigator.appVersion":   "5.0 (Windows)",
 				"navigator.buildID":      "20100101",
 				"navigator.geckoVersion": "10.0",
-				"navigator.version":      "10.0"
+				"navigator.version":      "10.0",
+			},
+
+			network: {
+				"accept.default": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+				"accept-encoding": "gzip, deflate",
+			},
+
+			image: {
+				"http.accept": "image/png,image/*;q=0.8,*/*;q=0.5",
+			},
+
+			intl: {
+				"accept_charsets": "iso-8859-1,*,utf-8",
+				"accept_languages": "en-us, en",
 			}
 		}
-	}
+	};
+
+	DefaultPreferences.setBoolPref("force.headers", false);
 
 	c.prototype.observe = function (subject, topic, data) {
 		if (topic == "http-on-modify-request") {
 			var http = subject.QueryInterface(Ci.nsIHttpChannel);
+
+			if (Preferences.getBoolPref("force.headers")) {
+				var header;
+
+				if (header = Changes.settings.network["accept.default"]) {
+					http.setRequestHeader("Accept", header, false);
+				}
+
+				if (header = Changes.settings.intl["accept_charsets"]) {
+					http.setRequestHeader("Accept-Charset", header, false);
+				}
+
+				if (header = Changes.settings.network["accept-encoding"]) {
+					http.setRequestHeader("Accept-Encoding", header, false);
+				}
+
+				if (header = Changes.settings.intl["accept_languages"]) {
+					http.setRequestHeader("Accept-Language", header, false);
+				}
+			}
 		}
 	}
 
