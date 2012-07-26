@@ -47,7 +47,7 @@ var Blender = (function () {
 			},
 
 			network: {
-				"accept.default": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+				"accept.default": "text/html, */*",
 				"accept-encoding": "gzip, deflate",
 			},
 
@@ -56,8 +56,8 @@ var Blender = (function () {
 			},
 
 			intl: {
-				"accept_charsets": "iso-8859-1,*,utf-8",
-				"accept_languages": "en-us, en",
+				"accept_charsets": "",
+				"accept_languages": "en-us, en;q=0.5",
 			}
 		}
 	};
