@@ -17,6 +17,8 @@ var Blender = (function () {
 	    Preferences        = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("extensions.blender."),
 	    DefaultPreferences = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getDefaultBranch("extensions.blender.");
 
+	Preferences.QueryInterface(Ci.nsIPrefBranch2);
+
 	var Changes  = {
 		preferences: {
 			general: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("general."),
@@ -47,7 +49,7 @@ var Blender = (function () {
 			},
 
 			network: {
-				"accept.default": "text/html, */*",
+				"accept.default":  "text/html, */*",
 				"accept-encoding": "gzip, deflate",
 			},
 
@@ -56,19 +58,20 @@ var Blender = (function () {
 			},
 
 			intl: {
-				"accept_charsets": "",
+				"accept_charsets":  "",
 				"accept_languages": "en-us, en;q=0.5",
 			}
 		}
 	};
 
-	DefaultPreferences.setBoolPref("force.headers", false);
+	DefaultPreferences.setBoolPref("force-headers", false);
+	DefaultPreferences.setBoolPref("fake-language", true);
 
 	c.prototype.observe = function (subject, topic, data) {
 		if (topic == "http-on-modify-request") {
 			var http = subject.QueryInterface(Ci.nsIHttpChannel);
 
-			if (Preferences.getBoolPref("force.headers")) {
+			if (Preferences.getBoolPref("force-headers")) {
 				var header;
 
 				if (header = Changes.settings.network["accept.default"]) {
@@ -88,12 +91,18 @@ var Blender = (function () {
 				}
 			}
 		}
+		else if (topic == "nsPref:changed") {
+			this.disable();
+			this.enable();
+		}
 	}
 
-	c.prototype.start = function () {
-		Observer.addObserver(this, "http-on-modify-request", false);
-
+	c.prototype.enable = function () {
 		for (var type in Changes.preferences) {
+			if (type == "intl" && !Preferences.getBoolPref("fake-language")) {
+				continue;
+			}
+
 			var preferences = Changes.preferences[type];
 
 			for (var name in Changes.settings[type]) {
@@ -104,9 +113,7 @@ var Blender = (function () {
 		}
 	}
 
-	c.prototype.stop = function () {
-		Observer.removeObserver(this, "http-on-modify-request");
-
+	c.prototype.disable = function () {
 		for (var type in Changes.preferences) {
 			var preferences = Changes.preferences[type];
 
@@ -116,6 +123,20 @@ var Blender = (function () {
 				}
 			}
 		}
+	}
+
+	c.prototype.start = function () {
+		Observer.addObserver(this, "http-on-modify-request", false);
+		Preferences.addObserver("fake-language", this, false);
+
+		this.enable();
+	}
+
+	c.prototype.stop = function () {
+		Observer.removeObserver(this, "http-on-modify-request");
+		Preferences.removeObserver("fake-language", this);
+
+		this.disable();
 	}
 
 	return c;
