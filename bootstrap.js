@@ -34,22 +34,22 @@ var Blender = (function () {
 				"buldID.override":     "0",
 				"oscpu.override":      "Windows NT 6.1",
 				"platform.override":   "Win32",
-				"productSub.override": "20100101",
+				"productSub.override": "20121201125707",
 
-				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; rv:10.0) Gecko/20100101 Firefox/10.0",
+				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; rv:17.0) Gecko/20100101 Firefox/17.0",
 				"useragent.vendor":    "",
 				"useragent.vendorSub": "",
 
 				"navigator.platform":     "Win32",
 				"navigator.system":       "Windows NT 6.1",
 				"navigator.appVersion":   "5.0 (Windows)",
-				"navigator.buildID":      "20100101",
-				"navigator.geckoVersion": "10.0",
-				"navigator.version":      "10.0",
+				"navigator.buildID":      "20121201125707",
+				"navigator.geckoVersion": "17.0",
+				"navigator.version":      "17.0",
 			},
 
 			network: {
-				"accept.default":  "text/html, */*",
+				"accept.default":  "text/html,application/xml,*/*",
 				"accept-encoding": "gzip, deflate",
 			},
 
@@ -58,8 +58,9 @@ var Blender = (function () {
 			},
 
 			intl: {
-				"accept_charsets":  "",
-				"accept_languages": "en-us, en;q=0.5",
+				"accept_charsets":  "*",
+				"accept_languages": "en-us",
+				"charset_default":  "",
 			}
 		}
 	};
