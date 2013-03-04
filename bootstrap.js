@@ -61,12 +61,13 @@ var Blender = (function () {
 				"accept_charsets":  "*",
 				"accept_languages": "en-us",
 				"charset_default":  "",
-			}
+			},
 		}
 	};
 
 	DefaultPreferences.setBoolPref("force-headers", false);
 	DefaultPreferences.setBoolPref("fake-language", true);
+	DefaultPreferences.setBoolPref("disable-fonts", false);
 
 	c.prototype.observe = function (subject, topic, data) {
 		if (topic == "http-on-modify-request") {
@@ -111,6 +112,11 @@ var Blender = (function () {
 					preferences.setCharPref(name, Changes.settings[type][name]);
 				}
 			}
+		}
+
+		if (Preferences.getBoolPref("disable-fonts") &&
+		    !preferences.prefHasUserValue("browser.display.use_document_fonts")) {
+			preferences.setIntPref("browser.display.use_document_fonts", 0);
 		}
 	}
 
