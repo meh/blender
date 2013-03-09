@@ -32,16 +32,16 @@ var Blender = (function () {
 				"appname.override":    "Netscape",
 				"appversion.override": "5.0 (Windows)",
 				"buldID.override":     "20130215130331",
-				"oscpu.override":      "Windows NT 6.1",
+				"oscpu.override":      "Windows NT 6.1; WOW64",
 				"platform.override":   "Win32",
 				"productSub.override": "20100101",
 
-				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; rv:19.0) Gecko/20100101 Firefox/19.0",
+				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0",
 				"useragent.vendor":    "",
 				"useragent.vendorSub": "",
 
 				"navigator.platform":     "Win32",
-				"navigator.system":       "Windows NT 6.1",
+				"navigator.system":       "Windows NT 6.1; WOW64",
 				"navigator.appVersion":   "5.0 (Windows)",
 				"navigator.buildID":      "20130215130331",
 				"navigator.geckoVersion": "19.0",
@@ -59,7 +59,7 @@ var Blender = (function () {
 
 			intl: {
 				"accept_charsets":  "*",
-				"accept_languages": "en-us",
+				"accept_languages": "en-US,en;q=0.5",
 				"charset_default":  "",
 			},
 		}
