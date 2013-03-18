@@ -17,8 +17,6 @@ var Blender = (function () {
 	    Preferences        = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("extensions.blender."),
 	    DefaultPreferences = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getDefaultBranch("extensions.blender.");
 
-	Preferences.QueryInterface(Ci.nsIPrefBranch2);
-
 	var Changes  = {
 		preferences: {
 			general: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("general."),
