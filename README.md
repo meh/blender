@@ -4,9 +4,9 @@ This addon sets various preferences to fake to be the most common.
 
 It fakes:
 
-* the operating system to be Windows 7
-* Firefox to be version 10
-* the language to be english
+* the operating system to be Windows 7 64-bit
+* Firefox to be version 22
+* the language to be English
 * the accepted charsets to be unspecified
 
 Options
@@ -16,6 +16,9 @@ Options
 
 * `extensions.blender.fake-language` tells blender to fake the language to
   english. `true` by default.
+
+* `extensions.blender.disable-fonts` tells blender to disable pages from using
+  their own fonts. `false` by default.
 
 Suggestions
 -----------
