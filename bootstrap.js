@@ -149,6 +149,9 @@ var Blender = (function () {
 
 var blender;
 
+function install (data, reason) {}
+function uninstall (data, reason) {}
+
 function startup (data, reason) {
 	blender = new Blender();
 	blender.start();
