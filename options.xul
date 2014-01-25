@@ -5,4 +5,6 @@
   <setting type="bool" pref="extensions.blender.force-headers" title="Force Headers" desc="Force overriding of Accept headers" />
   <setting type="bool" pref="extensions.blender.fake-language" title="Fake Language" desc="Fake the language to be US English" />
   <setting type="bool" pref="extensions.blender.disable-fonts" title="Disable Document Fonts" desc="Disable pages from using their own fonts" />
+  <setting type="bool" pref="extensions.blender.disable-plugins" title="Disable Plugins" desc="Disable plugins from being enumerated" />
+
 </vbox>

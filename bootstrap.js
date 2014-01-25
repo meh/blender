@@ -66,6 +66,7 @@ var Blender = (function () {
 	DefaultPreferences.setBoolPref("force-headers", false);
 	DefaultPreferences.setBoolPref("fake-language", true);
 	DefaultPreferences.setBoolPref("disable-fonts", false);
+	DefaultPreferences.setBoolPref("disable-plugin", false);
 
 	c.prototype.observe = function (subject, topic, data) {
 		if (topic == "http-on-modify-request") {
@@ -115,6 +116,11 @@ var Blender = (function () {
 		if (Preferences.getBoolPref("disable-fonts") &&
 		    !preferences.prefHasUserValue("browser.display.use_document_fonts")) {
 			preferences.setIntPref("browser.display.use_document_fonts", 0);
+		}
+
+		if (Preferences.getBoolPref("disable-plugins") &&
+				!preferences.prefHasUserValue("plugins.enumerable_names")) {
+			preferences.setStringPref("plugins.enumerable_names", "");
 		}
 	}
 
