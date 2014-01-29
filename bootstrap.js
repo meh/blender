@@ -119,7 +119,7 @@ var Blender = (function () {
 		}
 
 		if (Preferences.getBoolPref("disable-plugins") &&
-				!preferences.prefHasUserValue("plugins.enumerable_names")) {
+		    !preferences.prefHasUserValue("plugins.enumerable_names")) {
 			preferences.setStringPref("plugins.enumerable_names", "");
 		}
 	}
@@ -133,6 +133,16 @@ var Blender = (function () {
 					preferences.clearUserPref(name);
 				}
 			}
+		}
+
+		if (Preferences.getBoolPref("disable-fonts") &&
+		    preferences.getIntPref("browser.display.use_document_fonts") == 0) {
+			preferences.clearUserPref("browser.display.use_document_fonts");
+		}
+
+		if (Preferences.getBoolPref("disable-plugins") &&
+		   preferences.getStringPref("plugins.enumerable_names") == "") {
+			preferences.clearUserPref("plugins.enumerable_names");
 		}
 	}
 
