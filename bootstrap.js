@@ -34,7 +34,7 @@ var Blender = (function () {
 				"platform.override":   "Win32",
 				"productSub.override": "20100101",
 
-				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0",
+				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0.1) Gecko/20100101 Firefox/27.0.1",
 				"useragent.vendor":    "",
 				"useragent.vendorSub": "",
 
@@ -42,8 +42,8 @@ var Blender = (function () {
 				"navigator.system":       "Windows NT 6.1; WOW64",
 				"navigator.appVersion":   "5.0 (Windows)",
 				"navigator.buildID":      "20131205075310",
-				"navigator.geckoVersion": "26.0",
-				"navigator.version":      "26.0",
+				"navigator.geckoVersion": "27.0.1",
+				"navigator.version":      "27.0.1",
 			},
 
 			network: {
