@@ -29,21 +29,21 @@ var Blender = (function () {
 			general: {
 				"appname.override":    "Netscape",
 				"appversion.override": "5.0 (Windows)",
-				"buldID.override":     "20141113143407",
+				"buldID.override":     "201501222214805",
 				"oscpu.override":      "Windows NT 6.1; WOW64",
 				"platform.override":   "Win32",
 				"productSub.override": "20100101",
 
-				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0",
+				"useragent.override":  "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:35.0) Gecko/20100101 Firefox/35.0",
 				"useragent.vendor":    "",
 				"useragent.vendorSub": "",
 
 				"navigator.platform":     "Win32",
 				"navigator.system":       "Windows NT 6.1; WOW64",
 				"navigator.appVersion":   "5.0 (Windows)",
-				"navigator.buildID":      "20141113143407",
-				"navigator.geckoVersion": "33.0",
-				"navigator.version":      "33.0",
+				"navigator.buildID":      "201501222214805",
+				"navigator.geckoVersion": "35.0",
+				"navigator.version":      "35.0",
 			},
 
 			network: {
