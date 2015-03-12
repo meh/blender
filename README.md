@@ -4,8 +4,8 @@ This addon sets various preferences to fake to be the most common.
 
 It fakes:
 
-* the operating system to be Windows 7 64-bit
-* Firefox to be version 35
+* the operating system to be Windows 8.1 64-bit
+* Firefox to be version 36
 * the language to be English
 * the accepted charsets to be unspecified
 
