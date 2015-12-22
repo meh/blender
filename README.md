@@ -11,7 +11,7 @@ It fakes:
 
 Options
 -------
-* `extensions.blender.fake-useragent` tells blender to change UserAgent sent with requests. It can still be detected by javascript. `true` by default.
+* `extensions.blender.fake-useragent` tells blender to change UserAgent string. `true` by default.
 
 * `extensions.blender.force-headers` tells blender to force the overriding of
   the Accept headers. `false` by default.
