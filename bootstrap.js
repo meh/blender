@@ -17,6 +17,8 @@ var Blender = (function () {
 	    Preferences        = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("extensions.blender."),
 	    DefaultPreferences = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getDefaultBranch("extensions.blender.");
 
+	var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+
 	var Changes  = {
 		preferences: {
 			general: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("general."),
@@ -63,6 +65,7 @@ var Blender = (function () {
 		}
 	};
 
+  DefaultPreferences.setBoolPref("fake-useragent", true);
 	DefaultPreferences.setBoolPref("force-headers", false);
 	DefaultPreferences.setBoolPref("fake-language", true);
 	DefaultPreferences.setBoolPref("disable-fonts", false);
@@ -101,6 +104,9 @@ var Blender = (function () {
 	c.prototype.enable = function () {
 		for (var type in Changes.preferences) {
 			if (type == "intl" && !Preferences.getBoolPref("fake-language")) {
+				continue;
+			}
+			if (type == "general" && !Preferences.getBoolPref("fake-useragent")) {
 				continue;
 			}
 
@@ -158,6 +164,10 @@ var Blender = (function () {
 		Preferences.removeObserver("fake-language", this);
 
 		this.disable();
+	}
+
+	c.prototype.updateUserAgentString = function () {
+		Changes.settings.general[""]
 	}
 
 	return c;

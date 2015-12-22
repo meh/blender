@@ -11,6 +11,8 @@ It fakes:
 
 Options
 -------
+* `extensions.blender.fake-useragent` tells blender to change UserAgent string. `true` by default.
+
 * `extensions.blender.force-headers` tells blender to force the overriding of
   the Accept headers. `false` by default.
 
@@ -19,6 +21,8 @@ Options
 
 * `extensions.blender.disable-fonts` tells blender to disable pages from using
   their own fonts. `false` by default.
+
+* `extensions.blender.disable-plugins` tells blender to disable enumeration of installed plugins (such as Flash). `false` by default.
 
 Suggestions
 -----------
