@@ -166,53 +166,6 @@ var Blender = (function () {
 		this.disable();
 	}
 
-	c.prototype.init = function () {
-
-		// Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:43.0) Gecko/20100101 Firefox/43.0
-
-
-		// TODO - detect Platform etc.
-		// TODO - fetch updated UserAgent data and update data structure.
-		//var appname = "name:" + appInfo.name + " vendor:" + appInfo.vendor + " version:" + appInfo.version + " appBuildID:" + appInfo.appBuildID + " platformVersion:" + appInfo.platformVersion + " platformBuildID:" + appInfo.platformBuildID;
-		//name:Firefox vendor:Mozilla version:43.0.1 appBuildID:20151216175450 platformVersion:43.0.1 platformBuildID:20151216175450
-		// platform = gecko
-		var appname = "Netscape";
-		var appversion = "5.0 (Windows)";
-		var platform = "Win32";
-		var oscpu = "Windows NT 6.3; WOW64";
-		var buildid = "20150305021524";
-		var productsub = "20100101"; // GeckoTrail - fixed value on desktop
-		var navigator_platform = platform;
-		var navigator_system = oscpu;
-		var navigator_buildid = buildid;
-		var navigator_appversion = appversion;
-		var navigator_geckoversion = "36.0";
-		var navigator_version = navigator_geckoversion;
-
-		var useragent = "Mozilla/" + navigator_appversion.split(" ", 1)[0] + " (" + navigator_system + "; rv:" + navigator_geckoversion + ") Gecko/" + productsub + " Firefox/" + navigator_version ;
-
-		Changes.settings.general = {
-			"appname.override":    appname,
-			"appversion.override": appversion,
-			"buildID.override":    buildid,
-			"oscpu.override":      oscpu,
-			"platform.override":   platform,
-			"productSub.override": productsub,
-
-			"navigator.platform":     navigator_platform,
-			"navigator.system":       navigator_system,
-			"navigator.appVersion":   navigator_appversion,
-			"navigator.buildID":      navigator_buildid,
-			"navigator.geckoVersion": navigator_geckoversion,
-			"navigator.version":      navigator_version,
-
-			"useragent.override":  useragent,
-			"useragent.vendor":    "",
-			"useragent.vendorSub": ""
-		}
-
-	}
-
 	c.prototype.updateUserAgentString = function () {
 		Changes.settings.general[""]
 	}
@@ -227,7 +180,6 @@ function uninstall (data, reason) {}
 
 function startup (data, reason) {
 	blender = new Blender();
-	blender.init();
 	blender.start();
 }
 
